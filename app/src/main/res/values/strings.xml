@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Newsapp</string>
+    <string name="no_internet" />
+    <string name="no_results" />
+    <string name="settings_order_by_key" />
+    <string name="settings_order_by_default" />
+    <string name="settings_use_byline_key" />
+    <string name="settings_use_trailText_key" />
+    <string name="settings_use_thumbnail_key" />
+</resources>
