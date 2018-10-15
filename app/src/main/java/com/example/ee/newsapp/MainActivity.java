@@ -12,17 +12,11 @@ import android.net.Uri;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
-import com.example.ee.newsapp.NewsArticleAdapter.ArticleAdapter;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,7 +24,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     private static final int LOADER_ID = 1;
     private static final String SEARCH_QUERY_KEY = "query";
     private TextView mEmptyStateView;
-    private ArticleAdapter mAdapter;
+    private NewsArticleAdapter mAdapter;
     private ProgressBar mProgressBar;
 
     @Override
@@ -40,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
         mEmptyStateView =  findViewById(R.id.empty_view);
         mProgressBar =  findViewById(R.id.progress_bar);
-        mAdapter = new NewsArticleAdapter(this, ArrayList<NewArticle>());
+        mAdapter = new NewsArticleAdapter(this, new ArrayList<NewArticle>());
 
         ListView articleListView =  findViewById(R.id.list);
         articleListView.setEmptyView(mEmptyStateView);
@@ -89,11 +83,11 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         if (bundle != null) queryString = bundle.getString(SEARCH_QUERY_KEY);
         else queryString = "null";
 
-        final String QUERY_URL = "https://content.guardianapis.com/search?api-key=2b1f8e05-8a41-4e5c-ac30-b98cebde15e0";
+        final String QUERY_URL = "https://content.guardianapis.com/search";
         final String ARG_QUERY = "q";
         final String ARG_ORDER = "order-By";
         final String ARG_API = "api-key";
-        final String API_KEY = "test";
+        final String API_KEY = "2b1f8e05-8a41-4e5c-ac30-b98cebde15e0";
         final String ARG_SHOW_FIELDS = "show-fields";
         final String ARG_FIELDS_BYLINE = "byline";
         final String ARG_FIELDS_TRAILTEXT = "trailText";
@@ -119,7 +113,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         if (trailText) fieldsBuilder.append(ARG_FIELDS_TRAILTEXT + FIELDS_SEPARATOR);
         if (thumbnails) fieldsBuilder.append(ARG_FIELDS_THUMBNAILS + FIELDS_SEPARATOR);
         if (fieldsBuilder.length() > 0) {
-            fieldsBuilder.deleteCharAt(fieldsBuilder.length() - 1);         //seems simpler and less hassle than checking
+            fieldsBuilder.deleteCharAt(fieldsBuilder.length() - 1);
             uriBuilder.appendQueryParameter(ARG_SHOW_FIELDS, fieldsBuilder.toString());
         }
         uriBuilder.appendQueryParameter(ARG_API, API_KEY);

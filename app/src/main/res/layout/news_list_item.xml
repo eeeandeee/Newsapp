@@ -18,7 +18,7 @@
             android:layout_height="match_parent"
             android:text="CATEGORY NAME"
             android:id="@+id/category_title"
-            android:textSize="33sp"
+            android:textSize="28sp"
             android:gravity="center_horizontal"/>
     </LinearLayout>
 

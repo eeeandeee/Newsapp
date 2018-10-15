@@ -17,12 +17,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class NewsArticleAdapter {
+public class NewsArticleAdapter extends ArrayAdapter<NewArticle> {
+        private  final String LOG_TAG = NewsArticleAdapter.class.getSimpleName();
 
-    public class ArticleAdapter extends ArrayAdapter<NewArticle> {
-        private  final String LOG_TAG = ArticleAdapter.class.getSimpleName();
-
-        ArticleAdapter(Context context, List<NewArticle> articles) { super(context, 0, articles);
+        NewsArticleAdapter(Context context, List<NewArticle> articles) { super(context, 0, articles);
         }
 
         @NonNull
@@ -91,4 +89,4 @@ public class NewsArticleAdapter {
             ImageView thumbnail;
         }
     }
-}
+
