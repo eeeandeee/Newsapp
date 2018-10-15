@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Newsapp</string>
     <string name="no_internet" />
-    <string name="no_results" />
+    <string name="no_results">NO INTERNET CONNECTION FOUND!</string>
     <string name="settings_order_by_key" />
     <string name="settings_order_by_default" />
     <string name="settings_use_byline_key" />
