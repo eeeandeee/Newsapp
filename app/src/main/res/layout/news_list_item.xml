@@ -53,7 +53,7 @@
             android:text="@string/news_header"
             android:gravity="center_horizontal"
             android:id="@+id/news_title"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black" />
     </LinearLayout>
 
     <!--This Layout for content holder-->
