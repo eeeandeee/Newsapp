@@ -12,6 +12,7 @@ import android.net.Uri;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -84,7 +85,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         else queryString = "null";
 
         final String QUERY_URL = "https://content.guardianapis.com/search";
-        final String ARG_QUERY = "q";
+        final String ARG_QUERY = "?";
         final String ARG_ORDER = "order-By";
         final String ARG_API = "api-key";
         final String API_KEY = "2b1f8e05-8a41-4e5c-ac30-b98cebde15e0";
@@ -125,7 +126,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
 
 
-    //loader stuff
+    //checking loader to see if it works
     @Override
     public Loader<List<NewArticle>>onCreateLoader(int id, Bundle args) {
         return new NewsArticleLoader(this, createUri(args));
