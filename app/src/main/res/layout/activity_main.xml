@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".MainActivity">
 
     <ListView
@@ -13,10 +14,25 @@
     <TextView
         android:id="@+id/empty_view"
         android:layout_height="match_parent"
-        android:layout_width="match_parent" />
+        android:layout_width="match_parent"
+        android:textAppearance="@color/black"
+        android:textSize="@dimen/no_internet_handler"
+        android:layout_marginTop="@dimen/align_progressbar_top"
+        android:layout_marginLeft="@dimen/align_progressbar_Bottom"
+        android:layout_marginBottom="@dimen/align_progressbar_left"
+        android:layout_marginRight="@dimen/align_progressbar_left"
+        android:layout_marginStart="@dimen/align_progressbar_Bottom"
+        android:layout_marginEnd="@dimen/align_progressbar_left" />
 
     <ProgressBar
         android:id="@+id/progress_bar"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/empty_view"
+        app:layout_constraintVertical_bias="@dimen/vbias_size"
+        app:layout_editor_absoluteX="@dimen/progressbar_X"
+        app:layout_editor_absoluteY="@dimen/progressbar_Y"
+        tools:layout_editor_absoluteX="@dimen/null_value"
+        tools:ignore="MissingConstraints" />
 </android.support.constraint.ConstraintLayout>

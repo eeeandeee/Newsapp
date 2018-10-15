@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="title_size">18sp</dimen>
+    <dimen name="no_internet_handler">15sp</dimen>
     <dimen name="category_size">28sp</dimen>
     <dimen name="margin_small_top_bottom">2dp</dimen>
     <dimen name="margin_medium_top_bottom">4dp</dimen>
     <dimen name="margin_big_top_bottom">8dp</dimen>
-    <dimen name="weight_value_small">3</dimen>
-    <dimen name="weight_value_big">5</dimen>
+    <dimen name="align_progressbar_top">355dp</dimen>
+    <dimen name="align_progressbar_left">55dp</dimen>
+    <dimen name="align_progressbar_Bottom">85dp</dimen>
+    <dimen name="progressbar_X">168dp</dimen>
+    <dimen name="progressbar_Y">220dp</dimen>
+    <dimen name="null_dimen">0dp</dimen>
+    <dimen name="vbias_size">1.0</dimen>
     <dimen name="feature_image">300dp</dimen>
 
 </resources>
