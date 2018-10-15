@@ -9,14 +9,15 @@ import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
+import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,11 +33,11 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mEmptyStateView =  findViewById(R.id.empty_view);
-        mProgressBar =  findViewById(R.id.progress_bar);
+        mEmptyStateView = findViewById(R.id.empty_view);
+        mProgressBar = findViewById(R.id.progress_bar);
         mAdapter = new NewsArticleAdapter(this, new ArrayList<NewArticle>());
 
-        ListView articleListView =  findViewById(R.id.list);
+        ListView articleListView = findViewById(R.id.list);
         articleListView.setEmptyView(mEmptyStateView);
         articleListView.setAdapter(mAdapter);
         articleListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -83,7 +84,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         if (bundle != null) queryString = bundle.getString(SEARCH_QUERY_KEY);
         else queryString = "null";
 
-        final String QUERY_URL = "https://content.guardianapis.com/search";
+        final String QUERY_URL = " https://content.guardianapis.com/search";
         final String ARG_QUERY = "?";
         final String ARG_ORDER = "order-By";
         final String ARG_API = "api-key";
@@ -126,7 +127,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     //checking loader to see if it works
     @Override
-    public Loader<List<NewArticle>>onCreateLoader(int id, Bundle args) {
+    public Loader<List<NewArticle>> onCreateLoader(int id, Bundle args) {
         return new NewsArticleLoader(this, createUri(args));
     }
 

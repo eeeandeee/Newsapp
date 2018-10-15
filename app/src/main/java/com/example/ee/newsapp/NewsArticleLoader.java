@@ -5,22 +5,22 @@ import android.content.Context;
 
 import java.util.List;
 
-    public class NewsArticleLoader extends AsyncTaskLoader<List<NewArticle>> {
-        private final String mQueryUrl;
+public class NewsArticleLoader extends AsyncTaskLoader<List<NewArticle>> {
+    private final String mQueryUrl;
 
-        public NewsArticleLoader(Context context, String queryUrl) {
-            super(context);
-            mQueryUrl = queryUrl;
-        }
+    public NewsArticleLoader(Context context, String queryUrl) {
+        super(context);
+        mQueryUrl = queryUrl;
+    }
 
-        @Override
-        protected void onStartLoading() {
-            forceLoad();
-        }
+    @Override
+    protected void onStartLoading() {
+        forceLoad();
+    }
 
-        @Override
-        public List<NewArticle> loadInBackground() {
-            if (mQueryUrl == null) return null;
-            return QueryUtils.fetchData(mQueryUrl);
-        }
+    @Override
+    public List<NewArticle> loadInBackground() {
+        if (mQueryUrl == null) return null;
+        return QueryUtils.fetchData(mQueryUrl);
+    }
 }

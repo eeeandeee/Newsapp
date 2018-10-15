@@ -7,4 +7,9 @@
     <string name="settings_use_byline_key" />
     <string name="settings_use_trailText_key" />
     <string name="settings_use_thumbnail_key" />
+    <string name="date">Date Goes Here...</string>
+    <string name="author">Author Name...</string>
+    <string name="category">CATEGORY NAME</string>
+    <string name="news_header">Title Goes Here...</string>
+    <string name="content">Content Goes Here...</string>
 </resources>
