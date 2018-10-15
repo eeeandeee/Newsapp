@@ -12,7 +12,6 @@ import android.net.Uri;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -61,13 +60,13 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             String query = intent.getStringExtra(SearchManager.QUERY);
             Bundle bundle = new Bundle();
             bundle.putString(SEARCH_QUERY_KEY, query);
-            lookupArticles(bundle);
+            searchNews(bundle);
         } else if (Intent.ACTION_MAIN.equals(queryAction)) {
-            lookupArticles(null);
+            searchNews(null);
         }
     }
 
-    private void lookupArticles(Bundle bundle) {
+    private void searchNews(Bundle bundle) {
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo netInfo = cm.getActiveNetworkInfo();
         if (netInfo != null && netInfo.isConnected()) {
@@ -101,6 +100,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                 getString(R.string.settings_order_by_default)
         );
 
+//Querying API
         Uri baseUri = Uri.parse(QUERY_URL);
         Uri.Builder uriBuilder = baseUri.buildUpon();
         uriBuilder.appendQueryParameter(ARG_QUERY, queryString);
@@ -117,14 +117,12 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             fieldsBuilder.deleteCharAt(fieldsBuilder.length() - 1);
             uriBuilder.appendQueryParameter(ARG_SHOW_FIELDS, fieldsBuilder.toString());
         }
+
+        //passing arguments into query
         uriBuilder.appendQueryParameter(ARG_API, API_KEY);
         return uriBuilder.toString();
 
     }
-
-
-
-
 
     //checking loader to see if it works
     @Override
@@ -132,6 +130,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         return new NewsArticleLoader(this, createUri(args));
     }
 
+    //Load at Finished State
     @Override
     public void onLoadFinished(Loader<List<NewArticle>> loader, List<NewArticle> data) {
         mProgressBar.setVisibility(View.GONE);
